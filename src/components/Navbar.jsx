@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Menu, Sun, Moon, X } from "lucide-react";
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [activeSection, setActiveSection] = useState("home");
@@ -124,7 +124,80 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               Hire Me
             </motion.a>
           </div>
+         {/* mobile menu button*/}
+         <div className="flex lg:hidden items-center space-x-4 px-2">
+          <motion.button
+          whileTap={{ scale: 0.9}}
+          onClick={()=> setIsMenuOpen(!isMenuOpen)}
+          className={`p-2 rounded-lg ${darkMode
+            ? 'bg-gray-700'
+            :'bg-gray-200'
+          }`}>
+            {isMenuOpen ? (
+              <X className={`w-5 h-5 ${darkMode
+                ? 'text-white'
+                :'text-gray-700'
+              }`}/>
+            ):(
+              <Menu className={`w-5 h-5 ${darkMode
+                ?'text-white'
+                :'text-gray-700'
+              }`}/>
+            )}
+
+          </motion.button>
+
+         </div>
         </div>
+        {isMenuOpen && (
+          <motion.div
+          initial={{ opacity: 0, height:0}}
+          animate={{ opacity: 1, height:'auto'}}
+          exit={{opacity: 0, height: 0}}
+          transition={{duration:0.3}}
+          className={`absolute top-full left-0 right-0 mt-2 lg:hidden
+          ${darkMode
+            ?'bg-gray-900/95'
+            :'bg-white/95'
+          } backdrop-blur-lg rounded-xl shadow-lg border ${
+            darkMode ?'border-gray-700' :'border-gray-200'
+          }`}>
+            <div className="px-4 py-3 space-y-2">
+              {navItems.map((item) => (
+                <a
+                key={item.name}
+                href={item.link}
+                onClick={()=> handleNavClick(item.name)}
+                className="block">
+                  <motion.div
+                  whileHover={{x: 5}}
+                  className={`py-3 px-4 rounded-lg text-center ${
+                    activeSection ===item.name.toLowerCase()
+                    ? darkMode ? ' bg-gray-800' : ' bg-orange-50'
+                    :''
+                  }`}>
+                    <span
+                    className={`font-medium ${
+                      activeSection === item.name.toLocaleLowerCase()
+                      ? colors.textActive
+                      : colors.textSecondary
+                    }`}>
+                      {item.name}
+                    </span>
+                  </motion.div>
+                </a>
+              ))}
+              <motion.a
+              href="#contact"
+              onClick={()=> setIsMenuOpen(false)}
+              whileTap={{ scale: 0.95}}
+              className={`block py-3 px-4 text-center font-semibold rounded-lg bg-linear-to-r ${colors.button} text-while shadow-md`}>
+                Hire Me
+              </motion.a>
+            </div>
+
+          </motion.div>
+        )}
       </motion.nav>
     </div>
   );
