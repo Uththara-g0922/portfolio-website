@@ -42,7 +42,7 @@ const About = ({darkMode}) => {
           }`}
           data-aos='fade-up'
           data-aos-delay='500'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet quasi corrupti voluptates error corporis obcaecati suscipit. Omnis, quae amet obcaecati fugit quis expedita, eligendi illo quo dolor, libero hic perspiciatis.
+            I am a passionate Software Engineering graduate with a strong interest in full-stack development, AI, and modern web technologies. I enjoy creating clean, responsive, and user-friendly applications while continuously learning and improving my skills. Through academic and personal projects, I have gained experience in technologies such as React, Tailwind CSS, Flutter, and Firebase, and I am eager to contribute to innovative real-world software solutions.
             </p>
             <div
             className='flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8'>
