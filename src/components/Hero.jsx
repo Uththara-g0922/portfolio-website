@@ -65,7 +65,7 @@ const Hero = ({darkMode}) => {
             </h1>
             <p className={`mb-6 sm:mb-8 leading-relaxed max-w-md sm:max-w-lg ${theme.textSecondary}`}
             data-aos='fade-up'
-            data-aos-delay='600'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore a vero quia nihil libero temporibus quidem reprehenderit debitis vitae laborum.</p>
+            data-aos-delay='600'>I specialize in designing and developing modern, user-friendly applications that combine clean code with creative design. Every project is an opportunity to learn, innovate, and create meaningful solutions.</p>
 
             {/*Buttons*/}
             <div className='w-full pt-4 sm:pt-6'>
